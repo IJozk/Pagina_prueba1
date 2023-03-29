@@ -1,0 +1,19 @@
+@font-face{
+    font-family: "old japanese";
+    src: url('../fonts/Old_Japanese.otf') format("opentype");
+}
+
+@font-face{
+    font-family: "japanese_2020";
+    src: url('../fonts/JAPANESE_2020_ITALIC.otf') format("opentype");
+}
+
+
+
+#logoPag {
+    font-family: japanese_2020;
+}
+
+p {
+    font-family: old japanese;
+}
