@@ -17,3 +17,20 @@
 p {
     font-family: old japanese;
 }
+
+nav {
+    background-color: rgb(49, 49, 49);
+
+}
+
+#carousel1{
+    height: 400px;
+    background-color: rgb(49, 49, 49);
+  }
+
+.carousel-item > img{
+    height: 50%;
+    width: auto;
+    margin: auto;
+  } 
+  

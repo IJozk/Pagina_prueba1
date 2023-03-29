@@ -9,36 +9,43 @@
   </head>
   <body>
     
-    <!-- Nav tabs -->
-    <ul class="nav nav-tabs" id="navId" role="tablist">
-      <li class="nav-item">
-        <a href="#tab1Id" id="logoPag" class="nav-link active" data-bs-toggle="tab" aria-current="page">FiguritasUwU</a>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-        <div class="dropdown-menu">
-          <a class="dropdown-item" href="#tab2Id">Action</a>
-          <a class="dropdown-item" href="#tab3Id">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#tab4Id">Action</a>
+
+    <div class="row">
+
+      <div class="col-1"></div>
+      <div class="col-10">
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" id="navId" role="tablist">
+          <li class="nav-item">
+            <a href="index.html" id="logoPag" class="nav-link active" data-bs-toggle="tab" aria-current="page">FiguritasUwU</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#tab2Id">Action</a>
+              <a class="dropdown-item" href="#tab3Id">Another action</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#tab4Id">Action</a>
+            </div>
+          </li>
+          <li class="nav-item" role="presentation">
+            <a href="#tab5Id" class="nav-link" data-bs-toggle="tab">Another link</a>
+          </li>
+          <li class="nav-item" role="presentation">
+            <a href="#" class="nav-link disabled" data-bs-toggle="tab">Disabled</a>
+          </li>
+        </ul>
+        
+        <!-- Tab panes -->
+        <div class="tab-content" id="myTabContent">
+          <div class="tab-pane fade show active" id="tab1Id" role="tabpanel"></div>
+          <div class="tab-pane fade" id="tab2Id" role="tabpanel"></div>
+          <div class="tab-pane fade" id="tab3Id" role="tabpanel"></div>
+          <div class="tab-pane fade" id="tab4Id" role="tabpanel"></div>
+          <div class="tab-pane fade" id="tab5Id" role="tabpanel"></div>
         </div>
-      </li>
-      <li class="nav-item" role="presentation">
-        <a href="#tab5Id" class="nav-link" data-bs-toggle="tab">Another link</a>
-      </li>
-      <li class="nav-item" role="presentation">
-        <a href="#" class="nav-link disabled" data-bs-toggle="tab">Disabled</a>
-      </li>
-    </ul>
-    
-    <!-- Tab panes -->
-    <div class="tab-content" id="myTabContent">
-      <div class="tab-pane fade show active" id="tab1Id" role="tabpanel"></div>
-      <div class="tab-pane fade" id="tab2Id" role="tabpanel"></div>
-      <div class="tab-pane fade" id="tab3Id" role="tabpanel"></div>
-      <div class="tab-pane fade" id="tab4Id" role="tabpanel"></div>
-      <div class="tab-pane fade" id="tab5Id" role="tabpanel"></div>
-    </div>
+      </div>
+  </div>
     
     <!-- (Optional) - Place this js code after initializing bootstrap.min.js or bootstrap.bundle.min.js -->
     <script>
@@ -46,31 +53,36 @@
       bootstrap.Tab.getInstance(triggerEl).show() // Select tab by name
     </script>
 
-    <div id="carouselId" class="carousel slide" data-bs-ride="carousel" >
-      <ol class="carousel-indicators">
-        <li data-bs-target="#carouselId" data-bs-slide-to="0" class="active" aria-current="true" aria-label="First slide"></li>
-        <li data-bs-target="#carouselId" data-bs-slide-to="1" aria-label="Second slide"></li>
-        <li data-bs-target="#carouselId" data-bs-slide-to="2" aria-label="Third slide"></li>
-      </ol>
-      <div class="carousel-inner" role="listbox">
-        <div class="carousel-item active">
-          <img src="images/rengoku.jpg" class="w-100  d-block" alt="First slide">
+    <div class="row">
+
+      <div class="col-1" ></div>
+
+      <div id="carousel1" class="carousel slide col-10" data-bs-ride="carousel" >
+        <ol class="carousel-indicators">
+          <li data-bs-target="#carousel1" data-bs-slide-to="0" class="active" aria-current="true" aria-label="First slide"></li>
+          <li data-bs-target="#carousel1" data-bs-slide-to="1" aria-label="Second slide"></li>
+          <li data-bs-target="#carousel1" data-bs-slide-to="2" aria-label="Third slide"></li>
+        </ol>
+        <div class="carousel-inner" role="listbox">
+          <div class="carousel-item active">
+            <img src="images/rengoku.jpg" class="d-block" alt="First slide">
+          </div>
+          <div class="carousel-item">
+            <img src="images/figura2.jpeg" class="d-block" alt="Second slide">
+          </div>
+          <div class="carousel-item">
+            <img src="images/figura3.jpg" class="d-block" alt="Third slide">
+          </div>
         </div>
-        <div class="carousel-item">
-          <img src="images/figura2.jpeg" class="w-100 d-block" alt="Second slide">
-        </div>
-        <div class="carousel-item">
-          <img src="images/figura3.jpg" class="w-100 d-block" alt="Third slide">
-        </div>
-      </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselId" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselId" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carousel1" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
         </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carousel1" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+          </button>
+      </div>
     </div>
 
     <p>fsdjfgsdgfyi</p>
