@@ -9,7 +9,6 @@
 }
 
 
-
 #logoPag {
     font-family: japanese_2020;
 }
@@ -20,17 +19,41 @@ p {
 
 nav {
     background-color: rgb(49, 49, 49);
-
 }
 
 #carousel1{
-    height: 400px;
+    height: max-content;
     background-color: rgb(49, 49, 49);
   }
 
 .carousel-item > img{
-    height: 50%;
-    width: auto;
-    margin: auto;
+    align-self: flex-end;
+    max-width: max-content;
+    min-height: max-content; 
   } 
   
+  .card{
+    margin: 5%;
+    height: 80%;
+    width:18rem; 
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    align-items: self-start;
+  }
+
+  .img_card > img{
+    max-height: 100%;
+    background-size: 100%;
+    background-color: darkgrey;
+    margin: auto;
+
+  }
+
+  .img_card{
+    max-height: 60%;
+    height: 60%;
+  }
+
+  #navId{
+    align-items: end;
+  }
