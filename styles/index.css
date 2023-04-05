@@ -71,3 +71,14 @@ nav {
     align-items: end;
   }
 
+/*.row
+{
+  display: flex;
+  flex-direction: column;
+}*/
+
+.kokunCard
+{
+  align-items: center;
+  margin: auto;
+}
