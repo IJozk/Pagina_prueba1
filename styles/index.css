@@ -33,12 +33,13 @@ nav {
   } 
   
   .card{
-    margin: 5%;
-    height: 80%;
-    width:18rem; 
+    margin: 1%;
+    height: 90%;
+    width: auto; 
     margin-top: 2rem;
     margin-bottom: 2rem;
     align-items: self-start;
+    padding: 0%;
   }
 
   .img_card > img{
@@ -56,4 +57,9 @@ nav {
 
   #navId{
     align-items: end;
+  }
+
+  #cattop{
+
+    margin-top: 1%;
   }
