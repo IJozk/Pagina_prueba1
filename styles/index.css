@@ -17,8 +17,8 @@ p {
     font-family: old japanese;
 }
 
-footer  
-{
+
+footer  {
     position: relative;
     bottom: 0;
     width: 100%;
@@ -46,12 +46,13 @@ nav {
   } 
   
   .card{
-    margin: 5%;
-    height: 80%;
-    width:18rem; 
+    margin: 1%;
+    height: 90%;
+    width: auto; 
     margin-top: 2rem;
     margin-bottom: 2rem;
     align-items: self-start;
+    padding: 0%;
   }
 
   .img_card > img{
@@ -71,14 +72,8 @@ nav {
     align-items: end;
   }
 
-/*.row
-{
-  display: flex;
-  flex-direction: column;
-}*/
 
-.kokunCard
-{
-  align-items: center;
-  margin: auto;
-}
+  #cattop{
+
+    margin-top: 1%;
+  }
