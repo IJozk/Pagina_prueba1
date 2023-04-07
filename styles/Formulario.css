@@ -1,0 +1,12 @@
+body {
+    background-repeat: repeat;
+    background-image: url('fondo\ recortado.jpg');
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: darkslateblue;
+}
+
+@media only screen and (min-width: 1600px) {
+    body {
+        background-image: url('fondo.jpg');
+    }
+}
