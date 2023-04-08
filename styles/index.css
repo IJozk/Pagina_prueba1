@@ -87,3 +87,12 @@ nav {
     background-color: beige;
   }
 
+
+  #bannerAnime, #bannerMDC{
+    font-family: japanese_2020;
+    color: aliceblue;
+    padding: 1% 2%;
+    -webkit-text-stroke: 3px black;
+    font-size: 10em;
+  }
+  
