@@ -26,8 +26,8 @@ footer  {
     background-color: darkslateblue;
     color: cyan;
     text-align: center;
-    padding: 1em 0;
-    margin: 0%;
+    padding: 1% 0;
+    margin-top: 2%;
 }
 
 nav {
@@ -77,3 +77,22 @@ nav {
 
     margin-top: 1%;
   }
+
+  #contenido{
+    padding-bottom: 1%;
+  }
+
+  .precio{
+    color: gray;
+    background-color: beige;
+  }
+
+
+  #bannerAnime, #bannerMDC{
+    font-family: japanese_2020;
+    color: aliceblue;
+    padding: 1% 2%;
+    -webkit-text-stroke: 3px black;
+    font-size: 10em;
+  }
+  
