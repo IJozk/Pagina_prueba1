@@ -99,3 +99,7 @@ nav {
     font-size: calc(7vw);
   }
   
+  #pago{
+    margin-top: 2vw;
+    background-color: aliceblue;
+  }
