@@ -96,6 +96,6 @@ nav {
     color: aliceblue;
     padding: 1% 2%;
     -webkit-text-stroke: 3px black;
-    font-size: 10em;
+    font-size: calc(7vw);
   }
   
