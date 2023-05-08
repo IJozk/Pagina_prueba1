@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="styles/index.css">
     <link rel="shortcut icon" href="images/iconoSinFondo.ico">
     <link rel="stylesheet" href="styles/footer.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
   </head>
   <body>
     
@@ -100,7 +101,7 @@
     
 
     <div class="row" >
-      <div class="col-9" id="pago" > 
+      <div class="col-12" id="pago" > 
         <h1>Pago</h1>
         <div class="table-responsive">
           <table class="table table-primary table-bordered">
@@ -149,14 +150,156 @@
             </tbody>
           </table>
         </div>
-        <a name="" id="" class="btn btn-primary" style="margin: 1vw;" href="index_logeado2.html" role="button">Proceder al pago</a>
-      </div>
-
-      <div class="col-3" id="det_comp">
-        <h2 style="font-size: 1vw;">Datos comprador</h2>
+        
       </div>
     </div>
 
+
+    <div class="mb-3">
+      <label for="" class="form-label">Region</label>
+      <select class="form-select form-select-lg" name="" id="opciones">
+
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label for="" class="form-label">Comuna</label>
+      <select class="form-select form-select-lg" name="" id="opciones2">
+
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label for="" class="form-label">Dirección</label>
+      <input type="text"
+        class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+    </div>
+
+
+    <button type="button" class="btn btn-primary">Realizar pago</button>
+
+      <div class="mb-3">
+        <label for="" class="form-label">Peso chileno</label>
+        <input type="text"
+          class="form-control" name="" id="inputDolar" aria-describedby="helpId" placeholder="">
+        <small id="helpId" class="form-text text-muted">Introduzca el valor de su compra en pesos chilenos</small>
+      </div>
+
+      <div class="mb-3">
+        <label for="" class="form-label">Dolar</label>
+        <input type="text"
+          class="form-control" name="" id="outputPC" aria-describedby="helpId" placeholder="">
+        <small id="helpId" class="form-text text-muted">Resultado</small>
+      </div>
+
+      
+
+
+      <script>
+
+        function obtenerUbicacion(){
+          var mensajePrueba = document.getElementById("mapa");
+
+          if(navigator.geolocation){
+            mensajePrueba.innerHTML = "<p> Ubicación compartida. </p>";
+          }
+          else{
+            mensajePrueba.innerHTML = "<p> No se puede compartir ubicación. </p>";
+          }
+
+          function localizacion(pos){
+            var long = pos.coords.longitude;
+            var lati = pos.coords.latitude;
+
+            mensajePrueba.innerHTML = "<p> Latitud :"+lati+"<br>Longitud :"+long+"</p>";
+          }
+
+          function error(){
+            mensajePrueba.innerHTML = "<p> No se puede compartir ubicación. </p>";
+          }
+
+          navigator.geolocation.getCurrentPosition(localizacion,error);
+
+        }
+
+
+        $(document).ready(function (){
+            $("#inputDolar").on('input',function (){
+                var usd=$("#inputDolar").val()
+
+                $.getJSON('https://mindicador.cl/api', function (data) {
+                    var vusd = Math.round(usd/(data.dolar.valor/100))/100
+                    $("#outputPC").val("$"+vusd)
+                }).fail(function () {
+                    console.log('Error al consumir la API!');
+                });
+            })
+         })
+
+        
+
+        $.getJSON('https://api.waifu.pics/sfw/poke', function (data) {
+            var urlimg = ""+data.url+""
+            $("#fotokwai").attr('src', urlimg)
+            }).fail(function () {
+            console.log('Error al consumir la API!');
+        });
+
+        $.getJSON('https://gist.githubusercontent.com/juanbrujo/0fd2f4d126b3ce5a95a7dd1f28b3d8dd/raw/b8575eb82dce974fd2647f46819a7568278396bd/comunas-regiones.json', function (data) {
+          var regs="<option value=''>Elige tu region</option>"
+          for(var i = 0; i < 16; i++){
+            var regs  = regs+"<option value='"+i+"'>"+data.regiones[i]['region']+"</option> "
+          }
+              $("#opciones").html(regs);
+            }).fail(function () {
+            console.log('Error al consumir la API!');
+            
+        });
+
+        
+        $(document).ready(function (){
+            $("#opciones").change(function (){
+
+            $.getJSON('https://gist.githubusercontent.com/juanbrujo/0fd2f4d126b3ce5a95a7dd1f28b3d8dd/raw/b8575eb82dce974fd2647f46819a7568278396bd/comunas-regiones.json', function (data) {
+              var coms=""
+              for(var i = 0; i <50; i++){
+                if(data.regiones[$("#opciones :selected").val()]['comunas'][i] != null){
+                var coms  = coms+"<option value=''>"+data.regiones[$("#opciones :selected").val()]['comunas'][i]+"</option> "
+              }
+              else{
+                i=50;
+              }
+                }$("#opciones2").html(coms);
+                }).fail(function () {
+                console.log('Error al consumir la API!');
+                
+            });
+          })
+         })
+
+
+         (() => {
+            'use strict'
+
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            const forms = document.querySelectorAll('.needs-validation')
+
+            // Loop over them and prevent submission
+            Array.from(forms).forEach(form => {
+                form.addEventListener('submit', event => {
+                    if (!form.checkValidity()) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    }
+
+                    form.classList.add('was-validated')
+                }, false)
+            })
+        })()
+      </script>
+
+
+    </div>
 
 
     <div class="row" style="margin-top: 3%; margin-bottom: 1%;">
@@ -164,6 +307,8 @@
         
         <h1>Articulos recomentados</h1> 
       </div>
+
+      <img id="fotokwai" alt="Foto Kawai">
 
     </div>
 
