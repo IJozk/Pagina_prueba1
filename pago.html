@@ -155,11 +155,28 @@
     </div>
 
 
-    <div class="row" style="margin-top: 3%; margin-bottom: 1%;">
-      <h2>Datos de envio.</h2>
-      <p>Direccion</p>
-      <div id="mapa"></div>
-      <button type="button" class="btn btn-primary" onclick="obtenerUbicacion()">Coompartir mi ubicacion actual</button>
+    <div class="mb-3">
+      <label for="" class="form-label">Region</label>
+      <select class="form-select form-select-lg" name="" id="opciones">
+
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label for="" class="form-label">Comuna</label>
+      <select class="form-select form-select-lg" name="" id="opciones2">
+
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label for="" class="form-label">Dirección</label>
+      <input type="text"
+        class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+    </div>
+
+
+    <button type="button" class="btn btn-primary">Realizar pago</button>
 
       <div class="mb-3">
         <label for="" class="form-label">Peso chileno</label>
@@ -175,6 +192,7 @@
         <small id="helpId" class="form-text text-muted">Resultado</small>
       </div>
 
+      
 
 
       <script>
@@ -220,7 +238,64 @@
 
         
 
+        $.getJSON('https://api.waifu.pics/sfw/poke', function (data) {
+            var urlimg = ""+data.url+""
+            $("#fotokwai").attr('src', urlimg)
+            }).fail(function () {
+            console.log('Error al consumir la API!');
+        });
 
+        $.getJSON('https://gist.githubusercontent.com/juanbrujo/0fd2f4d126b3ce5a95a7dd1f28b3d8dd/raw/b8575eb82dce974fd2647f46819a7568278396bd/comunas-regiones.json', function (data) {
+          var regs="<option value=''>Elige tu region</option>"
+          for(var i = 0; i < 16; i++){
+            var regs  = regs+"<option value='"+i+"'>"+data.regiones[i]['region']+"</option> "
+          }
+              $("#opciones").html(regs);
+            }).fail(function () {
+            console.log('Error al consumir la API!');
+            
+        });
+
+        
+        $(document).ready(function (){
+            $("#opciones").change(function (){
+
+            $.getJSON('https://gist.githubusercontent.com/juanbrujo/0fd2f4d126b3ce5a95a7dd1f28b3d8dd/raw/b8575eb82dce974fd2647f46819a7568278396bd/comunas-regiones.json', function (data) {
+              var coms=""
+              for(var i = 0; i <50; i++){
+                if(data.regiones[$("#opciones :selected").val()]['comunas'][i] != null){
+                var coms  = coms+"<option value=''>"+data.regiones[$("#opciones :selected").val()]['comunas'][i]+"</option> "
+              }
+              else{
+                i=50;
+              }
+                }$("#opciones2").html(coms);
+                }).fail(function () {
+                console.log('Error al consumir la API!');
+                
+            });
+          })
+         })
+
+
+         (() => {
+            'use strict'
+
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            const forms = document.querySelectorAll('.needs-validation')
+
+            // Loop over them and prevent submission
+            Array.from(forms).forEach(form => {
+                form.addEventListener('submit', event => {
+                    if (!form.checkValidity()) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    }
+
+                    form.classList.add('was-validated')
+                }, false)
+            })
+        })()
       </script>
 
 
@@ -232,6 +307,8 @@
         
         <h1>Articulos recomentados</h1> 
       </div>
+
+      <img id="fotokwai" alt="Foto Kawai">
 
     </div>
 
