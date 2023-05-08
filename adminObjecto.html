@@ -10,74 +10,138 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
     <link rel="shortcut icon" href="images/iconoSinFondo.ico">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+        $('td').click(function(){
+                    var row_index = $(this).parent('tabla1').index();
+                    var col_index = $(this).index();
+                    alert("adsadas "+row_index);
+                });
+
+    </script>
 </head>
 
 <body>
-    <h1>Administrador de objeto</h1>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>#</th>
-                <th>codigo</th>
-                <th>nombre</th>
-                <th>Marca</th>
-                <th>accion</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th>1</th>
-                <td>001</td>
-                <td>Chimuelo</td>
-                <td>Chancho</td>
-                <td>
-                    <button type="button" class="btn btn-danger"><i class="bi bi-x-circle"></i></button>
-                    <button type="button" class="btn btn-primary"><i class="bi bi-arrow-left-right"></i>
-                    </i></button>
-                </td>
-            </tr>
-            <tr>
-                <th>2</th>
-                <td>002</td>
-                <td>kokun SS4</td>
-                <td>EMPRESTAME</td>
-                <td>
-                    <button type="button" class="btn btn-danger"><i class="bi bi-x-circle"></i></button>
-                    <button type="button" class="btn btn-primary"><i class="bi bi-arrow-left-right"></i>
-                    </i></button>
-                </td>
-            </tr>
-            <tr>
-                <th>3</th>
-                <td>003</td>
-                <td>RimuruTempest</td>
-                <td>EMPRESTAME</td>
-                <td> 
-                    <button type="button" class="btn btn-danger"><i class="bi bi-x-circle"></i></button>
-                    <button type="button" class="btn btn-primary"><i class="bi bi-arrow-left-right"></i>
-                    </i></button>
-                </td>
-            </tr>
-            <tr>
-                <th>4</th>
-                <td>
-                    <input type="codigo" class="col-6" id="Inputcod" placeholder="codigo">
-                </td>
-                <td>
-                    <input type="nombr" class="col-6" id="Inputcod" placeholder="nombre">
-                </td>
-                <td>
-                    <input type="marca" class="col-6" id="Inputcod" placeholder="marca">
-                </td>
-                <td>
-                    <button type="button" class="btn btn-success"><i class="bi bi-plus-circle"></i></button>
-                    <button type="button" class="btn btn-danger"><i class="bi bi-x-circle"></i></button>
-                    <button type="button" class="btn btn-primary"><i class="bi bi-arrow-left-right"></i>
-                    </i></button>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+
+    <script>
+        const eliminarFila = () => {
+            const table = document.getElementById('tabla1')
+            const rowCount = table.rows.length
+            
+            if (rowCount <= 1)
+                alert('No se puede eliminar el encabezado')
+            else
+                table.deleteRow(rowCount -1)
+        }
+
+
+        const agregarFila = () => {
+            var $num = document.getElementById('tabla1').getElementsByTagName('tr').length ;
+            document.getElementById('tabla1').insertRow(-1).innerHTML = '<tr><th>'+$num+'</th>'
+                +'<td>'
+                    +'<input type="codigo" class="col-6" id="Inputcod" placeholder="codigo">'
+                +'</td>'
+                +'<td>'
+                    +'<input type="nombr" class="col-6" id="Inputcod" placeholder="nombre">'
+                +'</td>'
+                +'<td>'
+                    +'<input type="marca" class="col-6" id="Inputcod" placeholder="marca">'
+                +'</td>'
+                +'<td>'
+                    +'<button type="button" class="btn btn-success" ><i class="bi bi-plus-circle"></i></button>'
+                        +'<button type="button" class="btn btn-danger" onclick="eliminarFila()"><i class="bi bi-x-circle"></i></button>'
+                        +'<button type="button" class="btn btn-primary"><i class="bi bi-arrow-left-right"></i>'
+                        +'</i></button>'
+                +'</td></tr>'}
+
+
+    </script>
+
+    <div class="container">
+        <div class="row">
+            <h1>Panel de administrador</h1>
+        </div>
+        <div class="row">  
+            <div class="col-2"></div>
+            <div class="col-8">
+                <a name="" id="" class="btn btn-primary" href="#" role="button">Adm. clientes</a>
+                <a name="" id="" class="btn btn-primary" href="adminObjecto.html" role="button">Adm. objetos</a>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <h1>Administrador de objeto</h1>
+        <table class="table" id="tabla1">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>codigo</th>
+                    <th>nombre</th>
+                    <th>Marca</th>
+                    <th>accion</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>1</th>
+                    <td>001</td>
+                    <td>Chimuelo</td>
+                    <td>Chancho</td>
+                    <td>
+                        <button type="button" class="btn btn-danger"><i class="bi bi-x-circle"></i></button>
+                        <button type="button" class="btn btn-primary"><i class="bi bi-arrow-left-right"></i>
+                        </i></button>
+                    </td>
+                </tr>
+                <tr>
+                    <th>2</th>
+                    <td>002</td>
+                    <td>kokun SS4</td>
+                    <td>EMPRESTAME</td>
+                    <td>
+                        <button type="button" class="btn btn-danger"><i class="bi bi-x-circle"></i></button>
+                        <button type="button" class="btn btn-primary"><i class="bi bi-arrow-left-right"></i>
+                        </i></button>
+                    </td>
+                </tr>
+                <tr>
+                    <th>3</th>
+                    <td>003</td>
+                    <td>RimuruTempest</td>
+                    <td>EMPRESTAME</td>
+                    <td> 
+                        <button type="button" class="btn btn-danger"><i class="bi bi-x-circle"></i></button>
+                        <button type="button" class="btn btn-primary"><i class="bi bi-arrow-left-right"></i>
+                        </i></button>
+                    </td>
+                </tr>
+                <tr>
+                    <th>4</th>
+                    <td>
+                        <input type="codigo" class="col-6" id="Inputcod" placeholder="codigo">
+                    </td>
+                    <td>
+                        <input type="nombr" class="col-6" id="Inputcod" placeholder="nombre">
+                    </td>
+                    <td>
+                        <input type="marca" class="col-6" id="Inputcod" placeholder="marca">
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-success" ><i class="bi bi-plus-circle"></i></button>
+                        <button type="button" class="btn btn-danger" onclick="eliminarFila()"><i class="bi bi-x-circle"></i></button>
+                        <button type="button" class="btn btn-primary"><i class="bi bi-arrow-left-right"></i>
+                        </i></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="form-group">
+            <button type="button" class="btn btn-primary mr-2" onclick="agregarFila()">Agregar Fila</button>
+            <button type="button" class="btn btn-danger" onclick="eliminarFila()">Eliminar Fila</button>
+          </div>
+    </div>
 </body>
 
 </html>
