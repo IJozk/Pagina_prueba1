@@ -16,18 +16,35 @@
     <div class="container">
         <div class="row justify-content-center pt-5 mt-5 m-1">
             <div class="col-md-6 col-sm-8 col-xl-4 col-lg-5 formulario">
-                <form action="">
+                <form class="needs-validation" action="menu_admin.html" novalidate>
                     <div class="form-group text-center pt-3">
                         <h1 class="text-light">INICIAR SESIÓN</h1>
                     </div>
                     <div class="form-group mx-sm-4 pt-3">
-                        <input type="text" class="form-control" id="nameId" placeholder="Ingrese su Usuario">
+                        <input type="email" class="form-control" id="nameId" placeholder="Ingrese su E-mail" required>
+                        <div class="valid-feedback">
+                            Correcto
+                        </div>
+                        <div class="invalid-feedback">
+                            Ingrese Su E-mail
+                        </div>
                     </div>
                     <div class="form-group mx-sm-4 pb-3">
-                        <input type="text" class="form-control" id="Inputpass" placeholder="Ingrese su Contraseña">
+                        <input type="password" class="form-control" id="Inputpass" placeholder="Ingrese su Contraseña"
+                            required>
+                        <div class="valid-feedback">
+                            Correcto
+                        </div>
+                        <div class="invalid-feedback">
+                            Ingrese su Contraseña
+                        </div>
                     </div>
                     <div class="form-group mx-sm-4 pb-2">
-                        <a name="" id="" class="btn btn-primary" href="menu_admin.html" role="button">Ingresar</a>
+                        <a href="adminObjecto.html">
+                            <button type="submit" class="btn btn-primary" a href="menu_admin.html">
+                                Ingresar
+                            </button>
+                        </a>
                     </div>
                     <div class="form-group mx-sm-3 text-right">
                         <span class=""><a href="rec_cuenta.html" class="olvide">Olvide mi contraseña?</a></span>
@@ -43,7 +60,27 @@
         </div>
     </div>
 
+    <script>
 
+        (() => {
+            'use strict'
+
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            const forms = document.querySelectorAll('.needs-validation')
+
+            // Loop over them and prevent submission
+            Array.from(forms).forEach(form => {
+                form.addEventListener('submit', event => {
+                    if (!form.checkValidity()) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    }
+
+                    form.classList.add('was-validated')
+                }, false)
+            })
+        })()
+    </script>
     <script src="scripts/formulario.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

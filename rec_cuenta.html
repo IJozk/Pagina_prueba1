@@ -9,22 +9,32 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="styles/login.css">
     <link rel="shortcut icon" href="images/iconoSinFondo.ico">
-    <title>Login</title>
+    <title>Recuperar cuenta</title>
 </head>
 
 <body>
     <div class="container">
         <div class="row justify-content-center pt-5 mt-5 m-1">
             <div class="col-md-6 col-sm-8 col-xl-4 col-lg-5 formulario">
-                <form action="">
+                <form class="needs-validation" action="ing_cod_rec.html" novalidate>
                     <div class="form-group text-center pt-3">
                         <h1 class="text-light">Recuperar cuenta</h1>
                     </div>
                     <div class="form-group mx-sm-4 pt-3">
-                        <input type="text" class="form-control" id="nameId" placeholder="E-mail de recuperación">
+                        <input type="email" class="form-control" id="nameId" placeholder="E-mail de recuperación" required>
+                        <div class="valid-feedback">
+                            Correcto
+                        </div>
+                        <div class="invalid-feedback">
+                            Ingrese Su Email
+                        </div>
                     </div>
                     <div class="form-group mx-sm-4 pb-2">
-                        <a name="" id="" class="btn btn-primary" href="ing_cod_rec.html" role="button">Enviar codigo</a>
+                        <a href="ing_cod_rec.html" role="button">
+                            <button type="submit" class="btn btn-primary" a href="ing_cod_rec.html">
+                                Ingresar E-mail
+                            </button>
+                        </a>
                     </div>
                     <div class="form-group mx-sm-3 text-right">
                         <span class=""><a href="rec_cuenta.html" class="olvide">Volver</a></span>
